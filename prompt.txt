@@ -1,0 +1,73 @@
+Tôi muốn tạo một ứng dụng Python thuần có giao diện GUI bằng PyQt5, tên là “Git Account Switcher”, có các yêu cầu sau:
+
+---
+
+## 🎯 Mục tiêu chức năng:
+1. Đọc file `generate_ssh_key.sh` để hiểu logic tạo SSH key.
+2. Tạo tool có thể chạy dưới dạng ứng dụng GUI trên:
+   - Windows (.exe)
+   - macOS (.app)
+   - Linux (binary ELF)
+3. Hỗ trợ chạy bằng giao diện GUI (PyQt5) hoặc chạy nền qua terminal tùy nền tảng.
+4. Cho phép tạo và lưu trữ **nhiều tài khoản Git**, mỗi tài khoản gồm:
+   - Tên tài khoản
+   - SSH key riêng
+   - Alias `Host` trong `~/.ssh/config`
+5. Cho phép chuyển đổi nhanh giữa các tài khoản Git:
+   - Khi chọn 1 tài khoản, các lệnh git từ terminal sẽ tự động dùng tài khoản đó (qua ssh-agent hoặc cập nhật config)
+6. Hiển thị **tài khoản Git đang sử dụng** trên giao diện GUI.
+7. Lưu danh sách tài khoản vào file JSON (vd: `config/accounts.json`)
+8. Kiểm tra logic nếu cần để đảm bảo tool hoạt động mượt, không lỗi.
+9. Có thể **build thành file cài đặt** chạy độc lập:
+   - `.exe` (Windows) dùng PyInstaller/Nuitka
+   - `.app` (macOS) dùng py2app hoặc Nuitka
+   - Binary (Linux) dùng PyInstaller/Nuitka
+
+---
+
+## 📁 Cấu trúc project đề xuất:
+
+
+git_account_tool/
+├── main.py # Entry point khởi động GUI PyQt5
+├── ui/
+│ └── main_window.py # Giao diện chính (chọn/switch tài khoản)
+├── services/
+│ ├── ssh_manager.py # Tạo key, thêm vào ssh-agent, copy clipboard
+│ └── git_config_manager.py # Quản lý ~/.ssh/config, switch host
+├── models/
+│ └── account.py # Class GitAccount (name, key_path, alias)
+├── config/
+│ └── accounts.json # Danh sách tài khoản Git dạng JSON
+├── README.md
+├── requirements.txt # pyqt5, etc.
+
+
+
+---
+
+## 💡 Yêu cầu kỹ thuật:
+- Tương thích cross-platform.
+- UI thân thiện, hiển thị danh sách tài khoản dưới dạng table/list.
+- Chức năng “Switch” để thay đổi tài khoản đang hoạt động.
+- Cảnh báo nếu ssh-agent chưa chạy.
+- Giao diện hỗ trợ dark mode (nếu có thể).
+
+---
+
+## 🧪 Build & chạy:
+- Windows: dùng `pyinstaller` hoặc `nuitka` để tạo file `.exe`
+- macOS: dùng `py2app` hoặc `nuitka` để tạo `.app`
+- Linux: dùng `pyinstaller` để tạo binary ELF
+- Có thể đóng gói thêm trình khởi chạy hoặc file `.desktop` nếu muốn chạy từ menu hệ điều hành
+
+---
+
+## 🔐 Mở rộng (nếu có thời gian):
+- Giao diện chọn avatar GitHub (nếu có)
+- Tự động clone repo test sau khi switch để kiểm thử key
+- Gợi ý alias, comment trong ssh config để tránh đụng nhau
+
+---
+
+Hãy giúp tôi tạo toàn bộ mã nguồn cần thiết với cấu trúc và chức năng như trên.
