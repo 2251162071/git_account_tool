@@ -1,2 +1,4 @@
 Windows:
 pyinstaller --noconsole --name "GitAccountSwitcher" --onefile main.py
+
+pyinstaller --add-data "config/accounts.json;config" --noconsole --onefile main.py
