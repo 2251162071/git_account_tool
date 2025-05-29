@@ -39,7 +39,7 @@ class SSHManager:
         if alias is None:
             file_name = Path(key_path).name
             alias = file_name.replace('id_rsa_', '') if file_name.startswith('id_rsa_') else ''
-        ssh_host = f"git@github.com-{alias}" if alias else "git@github.com"
+        ssh_host = f"git@{alias}" if alias else "git@github.com"
         cmd = [
             "ssh",
             "-i", str(key_path),

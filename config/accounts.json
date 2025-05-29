@@ -2,22 +2,8 @@
   {
     "name": "2251162071",
     "email": "2251162071@e.tlu.edu.vn",
-    "key_path": "/home/huandt/.ssh/id_rsa_2251162071",
-    "alias": "2251162071",
-    "is_active": false
-  },
-  {
-    "name": "HuanDT92",
-    "email": "huandt92@gmail.com",
-    "key_path": "/home/huandt/.ssh/id_rsa_HuanDT92",
-    "alias": "HuanDT92",
-    "is_active": false
-  },
-  {
-    "name": "AnhHuan",
-    "email": "huandt8@gmail.com",
-    "key_path": "/home/huandt/.ssh/id_rsa_AnhHuan",
-    "alias": "anhhuanpro",
+    "key_path": "C:\\Users\\huand\\.ssh\\id_rsa_2251162071",
+    "alias": "duyminh",
     "is_active": false
   }
 ]
