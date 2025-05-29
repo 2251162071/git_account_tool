@@ -1,0 +1,13 @@
+Ubuntu:
+# Cài đặt các dependencies cần thiết
+sudo apt-get update
+sudo apt-get install -y python3-venv python3-dev build-essential
+
+# Thiết lập môi trường Python
+pyenv local 3.12.10
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Tạo file thực thi
+pyinstaller --add-data "config/accounts.json:config" --noconsole --onefile --hidden-import PyQt5 --icon=logo.png main.py 

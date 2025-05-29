@@ -1,0 +1,6 @@
+macOS:
+pyenv local 3.12.10
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pyinstaller --add-data "config/accounts.json:config" --noconsole --onefile --hidden-import PyQt5 --icon=logo.icns main.py 
