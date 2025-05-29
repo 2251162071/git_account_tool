@@ -1,0 +1,20 @@
+git remote add origin git@duyminh:2251162071/git_account_tool.git
+Tôi thấy vấn đề rồi. Remote URL hiện tại đang sử dụng HTTPS thay vì SSH. Hãy thay đổi remote URL để sử dụng SSH:
+git remote set-url origin git@duyminh:2251162071/git_account_tool.git
+
+> git remote -v
+origin  https://github.com/2251162071/git_account_tool.git (fetch)
+origin  https://github.com/2251162071/git_account_tool.git (push)
+ git_account_tool ⚡ master ◉
+> git remote set-url origin git@duyminh:2251162071/git_account_tool.git
+ git_account_tool ⚡ master ◉
+> git remote -v
+origin  git@duyminh:2251162071/git_account_tool.git (fetch)
+origin  git@duyminh:2251162071/git_account_tool.git (push)
+
+> git push
+remote: Permission to 2251162071/git_account_tool.git denied to huan-furucrm.
+fatal: unable to access 'https://github.com/2251162071/git_account_tool.git/': The requested URL returned error: 403
+ git_account_tool ⚡ master ◉
+> ssh -T git@duyminh
+Hi 2251162071! You've successfully authenticated, but GitHub does not provide shell access.
